@@ -11,15 +11,17 @@ gsap.registerPlugin(ScrollTrigger)
 
 
 const Card = ({ title, description,button, index }) => {
+  const imageSrc = `/img/${index + 1}.jpg`; 
   return (
    
     <div
       className="card  w-full h-screen mx-auto border rounded-lg overflow-hidden shadow-lg"
       id={`card-${index + 1}`}
+
     >
       <div className="card-inner bg-amber-600 relative w-full h-full">
         <Image
-          src="/img/bodt.jpg"
+          src={imageSrc}
           alt="Card background"
           fill
           className="object-cover"
@@ -28,7 +30,7 @@ const Card = ({ title, description,button, index }) => {
          <div className="relative z-10 flex flex-col gap-7  justify-center items-center h-full bg-black/50 text-white text-center px-4">
     <h1 className="text-5xl font-extrabold">{title}</h1>
     <h5 className="text-2xl md:text-5xl font-extrabold">{description}</h5>
-    <button className="relative rounded-full px-6 py-3 bg-red-800 text-white text-2xl font-medium tracking-wide overflow-hidden group hover:bg-white hover:text-black">
+    <button className="relative rounded-full px-6 py-3 cursor-pointer bg-red-800 text-white text-2xl font-medium tracking-wide overflow-hidden group hover:bg-white hover:text-black">
     <span className="relative z-10 block bg-transparent  transition-transform duration-300 group-hover:-translate-y-10">
       {button}
     </span>
@@ -53,6 +55,7 @@ const cards = [
   {
     title: "Trainers",
     description: "Join our group fitness classes for a fun and motivating workout experience.",
+       button: "Trainers"
 
   },
   {
@@ -110,14 +113,16 @@ export default function Home() {
   {/* YouTube video iframe with absolute positioning */}
   <div className="absolute top-0 left-0 w-full h-full z-0 pointer-events-none overflow-hidden">
   <div className="w-full h-full scale-x-125 transition-transform duration-[5000ms] ease-in-out">
+  <div className="relative w-full h-screen overflow-hidden">
   <iframe
-  src="https://www.youtube.com/embed/GsPvopOOyBs?autoplay=1&mute=1&controls=0&loop=1&playlist=GsPvopOOyBs&modestbranding=1&showinfo=0&rel=0&end=57&start=1"
-  className="w-full h-full"
-  title="Fitness Cinematic video"
-  allow="autoplay; encrypted-media"
-  frameBorder="0"
-  allowFullScreen
-/>
+    src="https://www.youtube.com/embed/GsPvopOOyBs?autoplay=1&mute=1&controls=0&loop=1&playlist=GsPvopOOyBs&modestbranding=1&showinfo=0&rel=0&end=57&start=1"
+    className="absolute top-0 left-0 w-full h-full object-cover transform scale-110 object-center"
+    title="Fitness Cinematic video"
+    allow="autoplay; encrypted-media"
+    frameBorder="0"
+    allowFullScreen
+  />
+</div>
 
 
   </div>

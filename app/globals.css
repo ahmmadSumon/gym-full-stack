@@ -124,4 +124,21 @@
 body{
 background: #070707;
 }
+/* For Bebas Neue */
+/* Import Fonts from Google Fonts */
+/* For Bebas Neue */
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
+
+/* For Poppins */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+
+
+/* Apply to Website */
+body {
+  font-family: 'Poppins', sans-serif;
+}
+
+h1, h2, h3 {
+  font-family: 'Bebas Neue', sans-serif;
+}
 

@@ -17,7 +17,7 @@ export default function Navbar() {
   return (
     <header className="fixed top-0 z-50 w-full bg-transparent px-6 py-6 shadow-sm dark:bg-neutral-950">
       <div className="mx-auto flex max-w-7xl items-center justify-between">
-        <div className="text-xl font-bold text-white">SMN GYM</div>
+        <div className="text-2xl font-bold text-white">SMN GYM</div>
 
         {/* Desktop Nav */}
         <nav className="hidden items-center gap-6 lg:flex">
@@ -52,22 +52,22 @@ export default function Navbar() {
         <div className="lg:hidden">
           <Sheet>
             <SheetTrigger asChild>
-              <Button variant="ghost" size="icon">
+              <Button className=" text-white text-xl" size="icon">
                 <Menu />
               </Button>
             </SheetTrigger>
-            <SheetContent side="right" className="flex flex-col gap-4 pt-16">
-              <div className="text-lg font-semibold mb-2">Menu</div>
+            <SheetContent side="right" className="flex flex-col justify-center items-center gap-4 pt-16">
+              <div className="text-xl font-semibold mb-2">Menu</div>
               {navItems.map((item) => (
                 <a
                   key={item.name}
                   href={item.link}
-                  className="text-sm text-neutral-700 dark:text-neutral-200"
+                  className="text-xl text-neutral-700 dark:text-neutral-200"
                 >
                   {item.name}
                 </a>
               ))}
-              <button className="relative rounded-full px-6 py-3 bg-red-800 text-white text-xl font-medium tracking-wide overflow-hidden group hover:bg-white hover:text-black">
+              <button className="relative rounded-full px-6 py-3 bg-red-800 text-white text-lg font-medium tracking-wide overflow-hidden group hover:bg-white hover:text-black">
     <span className="relative z-10 block bg-transparent  transition-transform duration-300 group-hover:-translate-y-10">
       Account
     </span>
@@ -75,7 +75,7 @@ export default function Navbar() {
    Account
     </span>
   </button>
-  <button className="relative rounded-full px-6 py-3 bg-red-800 text-white text-xl font-medium tracking-wide overflow-hidden group hover:bg-white hover:text-black">
+  <button className="relative rounded-full px-6 py-3 bg-red-800 text-white text-lg font-medium tracking-wide overflow-hidden group hover:bg-white hover:text-black">
     <span className="relative z-10 block bg-transparent  transition-transform duration-300 group-hover:-translate-y-10">
     Book a Call
     </span>
