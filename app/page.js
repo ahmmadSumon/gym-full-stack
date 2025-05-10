@@ -7,6 +7,7 @@ import { ScrollTrigger } from 'gsap/all';
 import ReactLenis from '@studio-freight/react-lenis';
 import { CardHoverEffectDemo } from '@/components/CardHoverEffectDemo';
 import { AnimatedTestimonialsDemo } from '@/components/AnimatedTestimonialsDemo';
+import { DraggableCardDemo } from '@/components/DraggableCardDemo';
 
 gsap.registerPlugin(useGSAP)
 gsap.registerPlugin(ScrollTrigger)
@@ -141,7 +142,7 @@ export default function Home() {
       </div>
 
       {/* Overlay content */}
-      <div className="relative z-10 flex flex-col gap-7 justify-center items-center h-full bg-black/50 text-white text-center px-4">
+      <div className="relative z-10 flex flex-col gap-7 justify-center items-center h-full bg-black/20 text-white text-center px-4">
         <h1 className="text-4xl md:text-7xl font-extrabold">Build your tomorrow</h1>
         <h5 className="text-2xl md:text-5xl font-extrabold">Train Hard. Stay Strong. Transform Yourself.</h5>
         <button className="relative cursor-pointer rounded-full px-6 py-3 bg-red-800 text-white text-2xl font-medium tracking-wide overflow-hidden group hover:bg-white hover:text-black">
@@ -176,6 +177,13 @@ export default function Home() {
      
       <CardHoverEffectDemo/>
       </section> 
+      <section className='bg-black flex flex-col justify-center items-center mt-[500px] md:mt-0'>
+      <h1 className="text-xl md:text-6xl font-bold text-gray-900 bg-black leading-tight mb-10  relative">
+        <span className="bg-clip-text text-transparent bg-gradient-to-r from-red-500 to-pink-500">HAPPY CLIENTS</span>
+        <span className="absolute bottom-0 left-0 w-full h-1 bg-gradient-to-r from-purple-500 to-red-500"></span>
+    </h1>
+        <DraggableCardDemo/>
+      </section>
     
    </div>
    </ReactLenis>

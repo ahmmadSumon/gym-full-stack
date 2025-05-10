@@ -1,6 +1,8 @@
 'use client'
 
 import { CardHoverEffectDemo } from "@/components/CardHoverEffectDemo"
+import { DraggableCardDemo } from "@/components/DraggableCardDemo"
+import ReactLenis from "@studio-freight/react-lenis"
 
 export default function MembershipPage() {
   const plans = [
@@ -39,6 +41,7 @@ export default function MembershipPage() {
   ]
 
   return (
+    <ReactLenis root>
     <div className="min-h-screen bg-black text-gray-800">
       {/* Hero Section */}
       <div className="relative w-full h-[60vh] bg-[url('/img/3.jpg')] bg-cover bg-center">
@@ -82,6 +85,14 @@ export default function MembershipPage() {
            
             <CardHoverEffectDemo/>
             </section> 
+              <section className='bg-black flex flex-col justify-center items-center mt-[200px] md:mt-0'>
+                  <h1 className="text-xl md:text-6xl font-bold text-gray-900 bg-black leading-tight mb-10  relative">
+                    <span className="bg-clip-text text-transparent bg-gradient-to-r from-red-500 to-pink-500">HAPPY CLIENTS</span>
+                    <span className="absolute bottom-0 left-0 w-full h-1 bg-gradient-to-r from-purple-500 to-red-500"></span>
+                </h1>
+                    <DraggableCardDemo/>
+                  </section>
     </div>
+    </ReactLenis>
   )
 }

@@ -2,12 +2,14 @@
 
 import { AnimatedTestimonialsDemo } from '@/components/AnimatedTestimonialsDemo'
 import { CardHoverEffectDemo } from '@/components/CardHoverEffectDemo'
+import ReactLenis from '@studio-freight/react-lenis'
 import Image from 'next/image'
 
 export default function TrainersPage() {
  
   return (
-    <div className="min-h-screen bg-gray-100 text-gray-800">
+    <ReactLenis root>
+    <div className="min-h-screen bg-black text-gray-800">
       {/* Hero Section */}
       <div className="relative w-full h-[60vh]">
         <Image
@@ -32,11 +34,12 @@ export default function TrainersPage() {
        
         
             </section> 
-            <section className="outro  bg-black flex flex-col justify-center items-center mt-[1050px] md:mt-0">
+            <section className="outro  bg-black flex flex-col justify-center items-center mt-[50px] md:mt-0">
     
      
       <CardHoverEffectDemo/>
       </section> 
     </div>
+    </ReactLenis>
   )
 }

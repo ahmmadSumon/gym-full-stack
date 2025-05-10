@@ -2,51 +2,63 @@
 
 import { useState } from "react";
 import Image from "next/image";
+import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
+import { Textarea } from "@/components/ui/textarea";
+import { Checkbox } from "@/components/ui/checkbox";
+import { Button } from "@/components/ui/button";
+import ReactLenis from "@studio-freight/react-lenis";
+import Link from "next/link";
 
 const plans = [
-    {
-      title: 'Basic',
-      price: '$29',
-      period: 'per month',
-      features: [
-        'Access to gym equipment',
-        'Locker room access',
-        '1 free group class/week',
-      ],
-    },
-    {
-      title: 'Standard',
-      price: '$49',
-      period: 'per month',
-      features: [
-        'All Basic features',
-        'Unlimited group classes',
-        'Nutrition consultation',
-        '1 Personal training session',
-      ],
-    },
-    {
-      title: 'Premium',
-      price: '$79',
-      period: 'per month',
-      features: [
-        'All Standard features',
-        '5 Personal training sessions',
-        'Priority support',
-        '24/7 Access',
-      ],
-    },
-  ]
+  {
+    title: 'Basic',
+    price: '$29',
+    period: 'per month',
+    features: [
+      'Access to gym equipment',
+      'Locker room access',
+      '1 free group class/week',
+    ],
+  },
+  {
+    title: 'Standard',
+    price: '$49',
+    period: 'per month',
+    features: [
+      'All Basic features',
+      'Unlimited group classes',
+      'Nutrition consultation',
+      '1 Personal training session',
+    ],
+  },
+  {
+    title: 'Premium',
+    price: '$79',
+    period: 'per month',
+    features: [
+      'All Standard features',
+      '5 Personal training sessions',
+      'Priority support',
+      '24/7 Access',
+    ],
+  },
+];
 
 export default function ContactSection() {
   const [formData, setFormData] = useState({
     name: "",
     email: "",
+    phone: "",
     message: "",
     interests: {
-      personalTraining: false,
-      groupClasses: false,
-      membershipPlans: false,
+      strengthTraining: false,
+      hiit: false,
+      yoga: false,
+      cardio: false,
+      basic: false,
+      standard: false,
+      premium: false,
     },
   });
 
@@ -68,14 +80,15 @@ export default function ContactSection() {
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log("Submitted Data:", formData);
-    // Add submission logic here (e.g., send to API)
   };
 
   return (
+    <ReactLenis root>
     <section className="bg-black text-white py-16 px-4">
-         <div className="relative w-full h-[40vh]">
+      {/* Hero */}
+      <div className="relative w-full h-[40vh] ">
         <Image
-          src="/img/3.jpg" // 🔁 Replace with your own hero image
+          src="/img/3.jpg"
           alt="Trainers Hero"
           fill
           className="object-cover"
@@ -83,108 +96,145 @@ export default function ContactSection() {
         />
         <div className="absolute inset-0 bg-black/50 flex items-center justify-center">
           <h1 className="text-white text-4xl md:text-6xl font-extrabold uppercase">
-          Contact Us
+            Contact Us
           </h1>
         </div>
       </div>
-      <div className="max-w-3xl mx-auto mt-5">
-      <h1 className="text-white text-xl md:text-2xl mb-5 font-extrabold uppercase">
+
+      {/* Form */}
+      <div className="max-w-2xl  mx-auto mt-10">
+        <h2 className="text-xl md:text-2xl mb-5 text-center font-extrabold uppercase">
           Please fill up, so we can contact. Thank you.
-          </h1>
-        <form onSubmit={handleSubmit} className="space-y-6">
+        </h2>
+
+        <form onSubmit={handleSubmit} className="space-y-6 text-white">
           <div>
-            <label className="block text-sm font-semibold mb-1">Name</label>
-            <input
+            <Label className="text-white"  htmlFor="name">Name</Label>
+            <Input
               type="text"
               name="name"
-              onChange={handleChange}
               value={formData.name}
-              required
-              className="w-full p-3 rounded bg-gray-800 text-white border border-gray-600"
-            />
-          </div>
-          <div>
-            <label className="block text-sm font-semibold mb-1">Email</label>
-            <input
-              type="email"
-              name="email"
               onChange={handleChange}
-              value={formData.email}
               required
-              className="w-full p-3 rounded bg-gray-800 text-white border border-gray-600"
-            />
-          </div>
-          <div>
-            <label className="block text-sm font-semibold mb-1">Phone Number</label>
-            <input
-              type="number"
-              name="phone"
-              onChange={handleChange}
-              value={formData.phone}
-              required
-              className="w-full p-3 rounded bg-gray-800 text-white border border-gray-600"
-            />
-          </div>
-          <div>
-            <label className="block text-sm font-semibold mb-1">Message</label>
-            <textarea
-              name="message"
-              rows={4}
-              onChange={handleChange}
-              value={formData.message}
-              className="w-full p-3 rounded bg-gray-800 text-white border border-gray-600"
+              placeholder = "Ex: Tyler Durden"
+              className="bg-gray-800 text-white border-gray-600"
             />
           </div>
 
-          {/* Interests Checkboxes */}
           <div>
-            <label className="block text-sm font-semibold mb-2">
-              What are you interested in?
-            </label>
-            <div className="space-y-2">
-              <label className="flex items-center gap-2">
-                <input
-                  type="checkbox"
-                  name="personalTraining"
-                  checked={formData.interests.personalTraining}
-                  onChange={handleChange}
-                  className="accent-red-600"
-                />
-                Basic
-              </label>
-              <label className="flex items-center gap-2">
-                <input
-                  type="checkbox"
-                  name="groupClasses"
-                  checked={formData.interests.groupClasses}
-                  onChange={handleChange}
-                  className="accent-red-600"
-                />
-               Standard
-              </label>
-              <label className="flex items-center gap-2">
-                <input
-                  type="checkbox"
-                  name="membershipPlans"
-                  checked={formData.interests.membershipPlans}
-                  onChange={handleChange}
-                  className="accent-red-600"
-                />
-                Premium
-              </label>
+            <Label  className="text-white" htmlFor="email">Email</Label>
+            <Input
+              type="email"
+              name="email"
+              placeholder = "Ex: tylerdurden@gmail.com"
+              value={formData.email}
+              onChange={handleChange}
+              required
+              className="bg-gray-800 text-white border-gray-600"
+            />
+          </div>
+
+          <div>
+            <Label  className="text-white" htmlFor="phone">Phone Number</Label>
+            <Input
+              type="tel"
+              name="phone"
+              value={formData.phone}
+              onChange={handleChange}
+              required
+              className="bg-gray-800 text-white border-gray-600"
+            />
+          </div>
+
+          <div>
+            <Label  className="text-white" htmlFor="message">Message</Label>
+            <Textarea
+              name="message"
+              rows={4}
+              value={formData.message}
+              onChange={handleChange}
+              className="bg-gray-800 text-white border-gray-600"
+            />
+          </div>
+
+          {/* Checkboxes */}
+          <div className="grid md:grid-cols-2 gap-6">
+            <div>
+              <Label className="mb-2 block text-white text-xl">Programs</Label>
+              <div className="space-y-2 ">
+                {[
+                  ["strengthTraining", "Strength Training"],
+                  ["hiit", "HIIT"],
+                  ["yoga", "Yoga & Flexibility"],
+                  ["cardio", "Cardio Burn"],
+                ].map(([name, label]) => (
+                  <div key={name} className="flex text-white items-center gap-2">
+                    <Checkbox
+                      id={name}
+                      name={name}
+                      checked={formData.interests[name ]}
+                      onCheckedChange={(checked) =>
+                        setFormData((prev) => ({
+                          ...prev,
+                          interests: {
+                            ...prev.interests,
+                            [name]: !!checked,
+                          },
+                        }))
+                      }
+                    />
+                    <Label className="text-white" htmlFor={name}>{label}</Label>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            <div>
+              <Label className="mb-2 block text-xl text-white">Membership Plans</Label>
+              <div className="space-y-2">
+                {[
+                  ["basic", "Basic"],
+                  ["standard", "Standard"],
+                  ["premium", "Premium"],
+                ].map(([name, label]) => (
+                  <div key={name} className="flex text-xl items-center gap-2">
+                    <Checkbox
+                      id={name}
+                      name={name}
+                      checked={formData.interests[name]}
+                      onCheckedChange={(checked) =>
+                        setFormData((prev) => ({
+                          ...prev,
+                          interests: {
+                            ...prev.interests,
+                            [name]: !!checked,
+                          },
+                        }))
+                      }
+                    />
+                    <Label className="text-white" htmlFor={name}>{label}</Label>
+                  </div>
+                ))}
+              </div>
             </div>
           </div>
 
-          <button
-            type="submit"
-            className="w-full py-3 bg-red-700 hover:bg-red-800 rounded font-semibold text-white"
-          >
-            Submit
-          </button>
+          <button className="relative rounded-full px-6 py-3 bg-red-800 text-white text-lg font-medium tracking-wide overflow-hidden group hover:bg-white hover:text-black">
+
+              <Link href="/account">
+    <span className="relative z-10 block bg-transparent  transition-transform duration-300 group-hover:-translate-y-10">
+      Submit
+    </span>
+    <span className="absolute inset-0 flex  items-center justify-center opacity-0 transition-opacity duration-300 group-hover:opacity-100">
+   Submit
+    </span>
+    </Link>
+  </button>
         </form>
       </div>
 
-      <section className="py-16 px-6 max-w-6xl mx-auto ">
+      {/* Pricing Plans */}
+      <section className="py-16 px-6 max-w-6xl mx-auto">
         <div className="grid gap-10 md:grid-cols-3">
           {plans.map((plan, index) => (
             <div
@@ -204,13 +254,12 @@ export default function ContactSection() {
                   </li>
                 ))}
               </ul>
-              <button className="bg-red-700 text-white px-6 py-2 rounded-full font-semibold hover:bg-red-800 transition">
-                Join Now
-              </button>
+              <Button className="bg-red-700 hover:bg-red-800 w-full">Join Now</Button>
             </div>
           ))}
         </div>
       </section>
     </section>
+    </ReactLenis>
   );
 }
