@@ -141,4 +141,8 @@ body {
 h1, h2, h3 {
   font-family: 'Bebas Neue', sans-serif;
 }
+html, body {
+  height: auto;
+  overflow: auto;
+}
 
