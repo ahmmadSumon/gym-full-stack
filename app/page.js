@@ -157,12 +157,14 @@ export default function Home() {
         <h1 className="text-4xl md:text-7xl font-extrabold">Build your tomorrow</h1>
         <h5 className="text-2xl md:text-5xl font-extrabold">Train Hard. Stay Strong. Transform Yourself.</h5>
         <button className="relative cursor-pointer rounded-full px-6 py-3 bg-red-800 text-white text-2xl font-medium tracking-wide overflow-hidden group hover:bg-white hover:text-black">
+          <Link href='/contact'>
           <span className="relative z-10 block bg-transparent transition-transform duration-300 group-hover:-translate-y-15">
             Start Today
           </span>
           <span className="absolute inset-0 flex items-center justify-center opacity-0 transition-opacity duration-300 group-hover:opacity-100">
             Start Today
           </span>
+          </Link>
         </button>
       </div>
     </section>
