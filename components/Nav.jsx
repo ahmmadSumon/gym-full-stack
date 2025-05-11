@@ -44,12 +44,14 @@ export default function Navbar() {
     </Link>
   </button>
   <button className="relative rounded-full px-6 py-3 bg-red-800 text-white text-xl cursor-pointer  font-medium tracking-wide overflow-hidden group hover:bg-white hover:text-black">
+   <Link href="/contact">
     <span className="relative z-10 block bg-transparent  transition-transform duration-300 group-hover:-translate-y-10">
     Enroll Now
     </span>
     <span className="absolute inset-0 flex  items-center justify-center opacity-0 transition-opacity duration-300 group-hover:opacity-100">
     Enroll Now
     </span>
+    </Link>
   </button>
         </nav>
 
@@ -74,7 +76,7 @@ export default function Navbar() {
               ))}
               <button className="relative rounded-full px-6 py-3 bg-red-800 text-white text-lg font-medium tracking-wide overflow-hidden group hover:bg-white hover:text-black">
 
-              <Link href="account">
+              <Link href="/account">
     <span className="relative z-10 block bg-transparent  transition-transform duration-300 group-hover:-translate-y-10">
       Account
     </span>

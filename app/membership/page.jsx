@@ -3,6 +3,7 @@
 import { CardHoverEffectDemo } from "@/components/CardHoverEffectDemo"
 import { DraggableCardDemo } from "@/components/DraggableCardDemo"
 import ReactLenis from "@studio-freight/react-lenis"
+import Link from "next/link"
 
 export default function MembershipPage() {
   const plans = [
@@ -74,7 +75,9 @@ export default function MembershipPage() {
                 ))}
               </ul>
               <button className="bg-red-700 text-white px-6 py-2 rounded-full font-semibold hover:bg-red-800 transition">
+                <Link href='/contact'>
                 Join Now
+                </Link>
               </button>
             </div>
           ))}

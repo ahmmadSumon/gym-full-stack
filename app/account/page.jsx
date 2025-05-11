@@ -25,7 +25,7 @@ const Page = () => {
   }, [])
 
   return (
-    <div className='yy h-screen w-full flex items-center justify-center'>
+    <div className='yy h-screen w-full flex items-center justify-center mt-28 md:mt-10'>
       <div className='container'>
         <div className='form-box login'>
           <LoginFormDemo />
@@ -37,12 +37,12 @@ const Page = () => {
           <div className="toggle-panel toggle-left">
             <h1 className='text-4xl font-bold'>Hello! Welcome</h1>
             <p className='text-lg'>Don't Have an Account?</p>
-            <button className='btn register-btn bg-amber-700'>REGISTER</button>
+            <button className='btn cursor-pointer register-btn bg-amber-700'>REGISTER</button>
           </div>
           <div className="toggle-panel toggle-right">
             <h1 className='text-4xl font-bold'>Welcome Back</h1>
             <p className='text-lg'>Already have an account?</p>
-            <button className='btn login-btn bg-amber-700'>Login</button>
+            <button className='btn cursor-pointer login-btn bg-amber-700'>Login</button>
           </div>
         </div>
       </div>

@@ -8,12 +8,13 @@ import ReactLenis from '@studio-freight/react-lenis';
 import { CardHoverEffectDemo } from '@/components/CardHoverEffectDemo';
 import { AnimatedTestimonialsDemo } from '@/components/AnimatedTestimonialsDemo';
 import { DraggableCardDemo } from '@/components/DraggableCardDemo';
+import Link from 'next/link';
 
 gsap.registerPlugin(useGSAP)
 gsap.registerPlugin(ScrollTrigger)
 
 
-const Card = ({ title, description,button, index }) => {
+const Card = ({ title, description,button,link, index }) => {
   const imageSrc = `/img/${index + 1}.jpg`; 
   return (
    
@@ -34,12 +35,17 @@ const Card = ({ title, description,button, index }) => {
     <h1 className="text-5xl font-extrabold">{title}</h1>
     <h5 className="text-2xl md:text-5xl font-extrabold max-w-5xl">{description}</h5>
     <button className="relative rounded-full px-6 py-3 cursor-pointer bg-red-800 text-white text-2xl font-medium tracking-wide overflow-hidden group hover:bg-white hover:text-black">
+        <Link href={link}>
     <span className="relative z-10 block bg-transparent  transition-transform duration-300 group-hover:-translate-y-10">
-      {button}
+    
+       {button}
+      
+   
     </span>
     <span className="absolute inset-0 flex  items-center justify-center opacity-0 transition-opacity duration-300 group-hover:opacity-100">
    { button}
     </span>
+    </Link>
   </button>
   </div>
       </div>
@@ -53,28 +59,33 @@ const cards = [
   {
     title: "Personal Training",
     description: "One-on-one personal training sessions tailored to your fitness goals.",
-    button: "Program"
+    button:"Program",
+    link: "/program"
   },
   {
     title: "Trainers",
     description: "Join our group fitness classes for a fun and motivating workout experience.",
-       button: "Trainers"
+       link: "/trainers",
+        button:"Program",
 
   },
   {
     title: "Membership",
     description: "Receive customized meal plans and nutritional advice from experts.",
-        button: "Program"
+        link: "/program",
+         button:"Program",
   },
   {
     title: "Yoga & Meditation",
     description: "Enhance your flexibility, balance, and mental well-being with yoga and meditation.",
-        button: "Contact"
+        link: "/contact",
+         button:"Program",
   },
   {
     title: "Fitness Challenges",
     description: "Participate in exciting fitness challenges and track your progress.",
-        button: "Book a Call"
+        link: "/contact",
+         button:"Program",
   }
 ];
 
@@ -166,7 +177,7 @@ export default function Home() {
       </section> 
     <section className="cards  w-full min-h-[200vh] ">
       {cards.map((card, index) => (
-         <Card key={index} index ={index} title={card.title} description={card.description} button={card.button}/>
+         <Card key={index} index ={index} title={card.title} description={card.description} button={card.button} link={card.link}/>
       ))}
       </section> 
     <section className="outro h-screen bg-black flex flex-col justify-center items-center mt-[1050px] md:mt-0">
