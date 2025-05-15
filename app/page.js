@@ -33,7 +33,7 @@ const Card = ({ title, description,button,link, index }) => {
         />
          <div className="relative z-10 flex flex-col gap-7  justify-center items-center h-full bg-black/50 text-white text-center px-4">
     <h1 className="text-5xl font-extrabold">{title}</h1>
-    <h5 className="text-2xl md:text-5xl font-extrabold max-w-5xl">{description}</h5>
+    <h5 className="text-2xl md:text-3xl font-extrabold max-w-5xl">{description}</h5>
     <button className="relative rounded-full px-6 py-3 cursor-pointer bg-red-800 text-white text-2xl font-medium tracking-wide overflow-hidden group hover:bg-white hover:text-black">
         <Link href={link}>
     <span className="relative z-10 block bg-transparent  transition-transform duration-300 group-hover:-translate-y-10">
@@ -66,20 +66,20 @@ const cards = [
     title: "Trainers",
     description: "Join our group fitness classes for a fun and motivating workout experience.",
        link: "/trainers",
-        button:"Program",
+        button:"Trainers",
 
   },
   {
     title: "Membership",
     description: "Receive customized meal plans and nutritional advice from experts.",
         link: "/program",
-         button:"Program",
+         button:"Membership",
   },
   {
     title: "Yoga & Meditation",
     description: "Enhance your flexibility, balance, and mental well-being with yoga and meditation.",
         link: "/contact",
-         button:"Program",
+         button:"Contact",
   },
   {
     title: "Fitness Challenges",
@@ -170,12 +170,13 @@ export default function Home() {
     </section>
 
 
-    <section className="intro bg-black h-screen w-full text-center flex flex-col justify-center items-center">
+    <section className="intro  h-screen w-full text-center flex flex-col justify-center items-center">
     <h1 className="text-2xl md:text-6xl font-bold  leading-tight mb-5 pb-4 relative">
         <span className="bg-clip-text text-transparent bg-gradient-to-r from-red-500 to-pink-500">MEET OUR TRAINERS</span>
         <span className="absolute bottom-0 left-0 w-full h-1 bg-gradient-to-r from-purple-500 to-red-500"></span>
     </h1>
-    <AnimatedTestimonialsDemo/>
+    <div className='flex justify-center items-center mx-auto'><AnimatedTestimonialsDemo/></div>
+    
       </section> 
     <section className="cards  w-full min-h-[200vh] ">
       {cards.map((card, index) => (
@@ -195,7 +196,9 @@ export default function Home() {
         <span className="bg-clip-text text-transparent bg-gradient-to-r from-red-500 to-pink-500">HAPPY CLIENTS</span>
         <span className="absolute bottom-0 left-0 w-full h-1 bg-gradient-to-r from-purple-500 to-red-500"></span>
     </h1>
-        <DraggableCardDemo/>
+    <DraggableCardDemo/>
+   
+        
       </section>
     
    </div>

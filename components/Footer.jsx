@@ -37,10 +37,10 @@ export default function Footer() {
         <div>
           <h3 className="text-xl font-bold mb-4">Programs</h3>
           <ul className="space-y-2 text-gray-400">
-            <li><Link href="/programs/weight-loss" className="hover:text-white">Weight Loss</Link></li>
-            <li><Link href="/programs/bodybuilding" className="hover:text-white">Bodybuilding</Link></li>
-            <li><Link href="/programs/yoga" className="hover:text-white">Yoga</Link></li>
-            <li><Link href="/programs/cardio" className="hover:text-white">Cardio</Link></li>
+            <li><Link href="/programs" className="hover:text-white">Weight Loss</Link></li>
+            <li><Link href="/programs" className="hover:text-white">Bodybuilding</Link></li>
+            <li><Link href="/programs" className="hover:text-white">Yoga</Link></li>
+            <li><Link href="/programs" className="hover:text-white">Cardio</Link></li>
           </ul>
         </div>
 
