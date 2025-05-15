@@ -254,7 +254,9 @@ export default function ContactSection() {
                   </li>
                 ))}
               </ul>
+              <Link href="/account">
               <Button className="bg-red-700 hover:bg-red-800 w-full">Join Now</Button>
+              </Link>
             </div>
           ))}
         </div>
