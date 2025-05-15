@@ -9,6 +9,7 @@ import { CardHoverEffectDemo } from '@/components/CardHoverEffectDemo';
 import { AnimatedTestimonialsDemo } from '@/components/AnimatedTestimonialsDemo';
 import { DraggableCardDemo } from '@/components/DraggableCardDemo';
 import Link from 'next/link';
+import { Typewriter } from 'react-simple-typewriter'
 
 gsap.registerPlugin(useGSAP)
 gsap.registerPlugin(ScrollTrigger)
@@ -124,6 +125,14 @@ export default function Home() {
 
   
   }, {scope: container})
+   const handleType = (count) => {
+    // access word count number
+    console.log(count)
+  }
+    
+  const handleDone = () => {
+    console.log(`Done after 5 loops!`)
+  }
   return (
     <ReactLenis root>
    <div className="app" ref={container}>
@@ -153,8 +162,22 @@ export default function Home() {
       </div>
 
       {/* Overlay content */}
-      <div className="relative z-10 flex flex-col gap-7 justify-center items-center h-full bg-black/20 text-white text-center px-4">
-        <h1 className="text-4xl md:text-7xl font-extrabold">Build your tomorrow</h1>
+      <div className="relative z-10 flex flex-col gap-7 justify-center items-center h-full bg-black/20 text-white text-center px-2">
+        <h1 className="text-3xl md:text-7xl font-extrabold">{"Build your "}
+           <span className="text-red-500 font-extrabold text-3xl md:text-7xl">
+      <Typewriter
+        words={['tomorrow', 'body',"mindset", 'confidence',"future"]}
+        loop={Infinity}
+        cursor
+        cursorStyle="_"
+        typeSpeed={70}
+        deleteSpeed={50}
+        delaySpeed={1000}
+        onLoopDone={handleDone}
+        onType={handleType}
+      />
+    </span>
+        </h1>
         <h5 className="text-2xl md:text-5xl font-extrabold">Train Hard. Stay Strong. Transform Yourself.</h5>
         <button className="relative cursor-pointer rounded-full px-6 py-3 bg-red-800 text-white text-2xl font-medium tracking-wide overflow-hidden group hover:bg-white hover:text-black">
           <Link href='/contact'>
@@ -178,6 +201,7 @@ export default function Home() {
     <div className='flex justify-center items-center mx-auto'><AnimatedTestimonialsDemo/></div>
     
       </section> 
+      
     <section className="cards  w-full min-h-[200vh] ">
       {cards.map((card, index) => (
          <Card key={index} index ={index} title={card.title} description={card.description} button={card.button} link={card.link}/>

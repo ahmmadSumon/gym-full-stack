@@ -123,6 +123,7 @@
 
 body{
 background: #070707;
+overflow: 'hidden'
 }
 /* For Bebas Neue */
 /* Import Fonts from Google Fonts */

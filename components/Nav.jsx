@@ -56,25 +56,25 @@ export default function Navbar() {
         </nav>
 
         {/* Mobile Nav */}
-        <div className="lg:hidden">
+        <div className="lg:hidden ">
           <Sheet>
             <SheetTrigger asChild>
-              <Button className=" text-white text-xl" size="icon">
+              <Button className=" text-white " size="icon">
                 <Menu />
               </Button>
             </SheetTrigger>
-            <SheetContent side="right" className="flex flex-col justify-center items-center gap-4 pt-16">
+            <SheetContent side="right" className="flex bg-red-800 flex-col justify-center items-center gap-4 pt-16">
               <div className="text-xl font-semibold mb-2">Menu</div>
               {navItems.map((item) => (
                 <a
                   key={item.name}
                   href={item.link}
-                  className="text-xl text-neutral-700 dark:text-neutral-200"
+                  className="text-xl text-white hover:text-black dark:text-neutral-200"
                 >
                   {item.name}
                 </a>
               ))}
-              <button className="relative rounded-full px-6 py-3 bg-red-800 text-white text-lg font-medium tracking-wide overflow-hidden group hover:bg-white hover:text-black">
+              <button className="relative rounded-full px-6 py-3 bg-black text-white text-lg font-medium tracking-wide overflow-hidden group hover:bg-white hover:text-black">
 
               <Link href="/account">
     <span className="relative z-10 block bg-transparent  transition-transform duration-300 group-hover:-translate-y-10">
@@ -85,7 +85,7 @@ export default function Navbar() {
     </span>
     </Link>
   </button>
-  <button className="relative rounded-full px-6 py-3 bg-red-800 text-white text-lg font-medium tracking-wide overflow-hidden group hover:bg-white hover:text-black">
+  <button className="relative rounded-full px-6 py-3 bg-black text-white text-lg font-medium tracking-wide overflow-hidden group hover:bg-white hover:text-black">
     <Link href="/contact">
     <span className="relative z-10 block bg-transparent  transition-transform duration-300 group-hover:-translate-y-10">
     Book a Call
