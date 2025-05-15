@@ -16,7 +16,7 @@ const navItems = [
 
 export default function Navbar() {
   return (
-    <header className="fixed top-0 z-50 w-full bg-transparent px-6 py-6 shadow-sm dark:bg-neutral-950">
+    <header className="fixed top-0 z-50 w-full bg-black/20 px-6 py-6 shadow-sm dark:bg-neutral-950">
       <div className="mx-auto flex max-w-7xl items-center justify-between">
         <Link href='/'>
         
